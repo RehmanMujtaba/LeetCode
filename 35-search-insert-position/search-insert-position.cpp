@@ -5,7 +5,6 @@ public:
         int bottom = 0;
         while (bottom <= top) {
             int spot = floor((top+bottom)/2);
-                        cout << "TOP is: " << top << " BOTTOM is: " << bottom << " MID is: " << spot << endl;
             if (nums[spot] == target) {
                 return spot;
             } else if (nums[spot] < target) {
