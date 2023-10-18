@@ -5,13 +5,13 @@ public:
         int high = numbers.size() - 1;
         vector<int> solution;
 
-        while(low < high) {
+        while(true) {
             // int current = numbers[low] + numbers[high];
 
             if (numbers[low] + numbers[high] == target) {
                 solution.push_back(low + 1);
                 solution.push_back(high + 1);
-                break;
+                        return solution;
             }
             if (numbers[low] + numbers[high] < target) {
                 low++;
@@ -19,7 +19,6 @@ public:
                 high--;
             }
         }
-
         return solution;
     }
 };
