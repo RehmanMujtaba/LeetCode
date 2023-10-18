@@ -6,16 +6,16 @@ public:
         vector<int> solution;
 
         while(low < high) {
-            int current = numbers[low] + numbers[high];
+            // int current = numbers[low] + numbers[high];
 
-            if (current == target) {
+            if (numbers[low] + numbers[high] == target) {
                 solution.push_back(low + 1);
                 solution.push_back(high + 1);
                 break;
             }
-            if (current < target) {
+            if (numbers[low] + numbers[high] < target) {
                 low++;
-            } else if (current > target) {
+            } else if (numbers[low] + numbers[high] > target) {
                 high--;
             }
         }
