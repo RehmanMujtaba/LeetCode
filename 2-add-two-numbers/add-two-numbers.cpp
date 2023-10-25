@@ -13,40 +13,9 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        // stack<int> stackOne;
-        // stack<int> stackTwo;
-
-        // ListNode* node = l1;
-        // while(node != nullptr) { 
-        //     stackOne.push(node->val);
-        //     node = node->next;
-        // }
-
-        // node = l2;
-        // while(node != nullptr) { 
-        //     stackTwo.push(node->val);
-        //     node = node->next;
-        // }
-
-        // int numOne = 0;
-        // int i = 1;
-        // while(!stackOne.empty()) {
-        //     numOne +=  stackOne.pop() * i;
-        //     i *= 10;
-        // }
-
-        // int numTwo = 0;
-        // i = 1;
-        // while(!stackTwo.empty()) {
-        //     numTwo +=  stackTwo.pop() * i;
-        //     i *= 10;
-        // }
-
-        // int result = numOne + numTwo;
-
+        
         bool carryOver = false;
         int currNum = 0;
-        // bool first = true;
         stack<ListNode*> nodeStack;
 
         ListNode* currOne  = l1;
@@ -54,8 +23,6 @@ public:
 
         while(currOne || currTwo) {
             ListNode* node = new ListNode;
-
-            // currNum = (stackOne.empty()) : stackTwo.pop() ? stackOne.pop() + stackTwo.pop();
 
             if (!currTwo) {
                 currNum = currOne->val;
