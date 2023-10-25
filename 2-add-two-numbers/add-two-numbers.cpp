@@ -16,10 +16,13 @@ public:
         
         bool carryOver = false;
         int currNum = 0;
-        stack<ListNode*> nodeStack;
+        // stack<ListNode*> nodeStack;
 
         ListNode* currOne  = l1;
         ListNode* currTwo = l2;
+
+        ListNode* dummy=new ListNode();
+        ListNode* temp=dummy;
 
         while(currOne || currTwo) {
             ListNode* node = new ListNode;
@@ -48,24 +51,29 @@ public:
             }
 
             ListNode* newNode = new ListNode(currNum);
-            nodeStack.push(newNode);
+            temp->next=newNode;
+            temp=temp->next;
+            // nodeStack.push(newNode);
         }
 
         // Deal with excess carry over
         if (carryOver) {
             ListNode* newNode = new ListNode(1);
-            nodeStack.push(newNode);
+            temp->next=newNode;
+            temp=temp->next;
+            // nodeStack.push(newNode);
         }
 
-        ListNode* root = nullptr;
-        while (nodeStack.empty() == false) {
-            ListNode* newNode = nodeStack.top();
-            nodeStack.pop();
-            newNode->next = root;
-            root = newNode;
-        }
+        // ListNode* root = nullptr;
+        // while (nodeStack.empty() == false) {
+        //     ListNode* newNode = nodeStack.top();
+        //     nodeStack.pop();
+        //     newNode->next = root;
+        //     root = newNode;
+        // }
 
-        return root;
+        // return root;
+        return dummy->next;
 
     }
 };
