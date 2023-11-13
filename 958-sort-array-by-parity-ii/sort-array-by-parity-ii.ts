@@ -3,7 +3,9 @@ function sortArrayByParityII(nums: number[]): number[] {
    let odd_ptr:number = 1;
    let even_ptr:number = 0;
 
-    while(odd_ptr < nums.length && even_ptr < nums.length) {
+//    let len:number = nums.length
+
+    while(odd_ptr < nums.length) {
         
         if (nums[odd_ptr] % 2 == 1) {
             odd_ptr += 2;
