@@ -5,7 +5,7 @@ function sortArrayByParityII(nums: number[]): number[] {
 
 //    let len:number = nums.length
 
-    while(odd_ptr < nums.length) {
+    while(even_ptr < nums.length) {
         
         if (nums[odd_ptr] % 2 == 1) {
             odd_ptr += 2;
