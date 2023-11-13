@@ -11,9 +11,10 @@ public:
             } else if (nums[even_ptr] % 2 == 0) {
                 even_ptr += 2;
             } else {
-                int temp = nums[odd_ptr];
-                nums[odd_ptr] = nums[even_ptr];
-                nums[even_ptr] = temp;
+                // int temp = nums[odd_ptr];
+                // nums[odd_ptr] = nums[even_ptr];
+                // nums[even_ptr] = temp;
+                swap(nums[odd_ptr], nums[even_ptr]);
                 even_ptr += 2;
                 odd_ptr += 2;
             }
