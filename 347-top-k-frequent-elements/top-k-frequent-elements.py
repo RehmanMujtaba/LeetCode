@@ -13,13 +13,12 @@ class Solution:
         for key,value in hashmap.items():
             counts[value].append(key)
         
-        num = k
         answer = []
         for arr in reversed(counts):
-            if num > 0:
+            if k > 0:
                 for item in arr:
                     answer.append(item)
-                    num -= 1
+                    k -= 1
             else:
-                break
+                return answer
         return answer
