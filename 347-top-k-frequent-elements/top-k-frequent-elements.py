@@ -4,10 +4,7 @@ class Solution:
         hashmap = {}
 
         for item in nums:
-            if item in hashmap:
-                hashmap[item] += 1
-            else:
-                hashmap[item] = 1
+            hashmap[item] = 1 + hashmap.get(item,0)
         
         counts = [[] for item in range(len(nums) + 1)]
         for key,value in hashmap.items():
