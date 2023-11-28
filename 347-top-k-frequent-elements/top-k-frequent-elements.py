@@ -5,11 +5,8 @@ class Solution:
 
         # Count the frequency of each element
         for item in nums:
-            if item in hashmap:
-                hashmap[item] += 1
-            else:
-                hashmap[item] = 1
-
+            hashmap[item] = hashmap.get(item,0) + 1
+ 
         # Use a min heap to keep track of the k most frequent elements
         max_heap = [(-value, key) for key, value in hashmap.items()]
         heapq.heapify(max_heap)
