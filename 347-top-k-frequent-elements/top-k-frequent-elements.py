@@ -17,6 +17,6 @@ class Solution:
         heapq.heapify(max_heap)
 
         # Extract the k most frequent elements from the max heap
-        result = [heapq.heappop(max_heap)[1] for _ in range(k)]
+        result = [heapq.heappop(max_heap)[1] for idk in range(k)]
 
         return result
