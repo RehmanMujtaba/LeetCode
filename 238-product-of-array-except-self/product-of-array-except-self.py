@@ -14,9 +14,9 @@ class Solution:
 
         for index, num in enumerate(reversed(nums)):
             product = product * num
-            postfix_arr[index] = product
+            postfix_arr[len(nums) - index - 1] = product
         
-        postfix_arr = postfix_arr[::-1]
+        # postfix_arr = postfix_arr[::-1]
 
         return_arr = [1] * len(nums)
 
