@@ -1,22 +1,22 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
 
-        prefix_arr = [1] * len(nums) 
-        postfix_arr = [1] * len(nums) 
+        prefix_arr = []
+        postfix_arr = []
 
         product = 1
 
         for index, num in enumerate(nums):
             product = product * num
-            prefix_arr[index] = product
+            prefix_arr.append(product)
         
         product = 1
 
         for index, num in enumerate(reversed(nums)):
             product = product * num
-            postfix_arr[len(nums) - index - 1] = product
+            postfix_arr.append(product)
         
-        # postfix_arr = postfix_arr[::-1]
+        postfix_arr = postfix_arr[::-1]
 
         return_arr = [1] * len(nums)
 
