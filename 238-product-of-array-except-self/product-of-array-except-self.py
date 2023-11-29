@@ -20,11 +20,7 @@ class Solution:
 
         return_arr = [1] * len(nums)
 
-        print(prefix_arr)
-        print(postfix_arr)
-
         for index in range(len(nums)):
-            print(f"the index is {index}")
             if index == 0:
                 return_arr[index] = 1 * postfix_arr[index + 1]
             elif index == len(nums) - 1:
@@ -33,3 +29,4 @@ class Solution:
                 return_arr[index] = prefix_arr[index - 1] * postfix_arr[index + 1]
             
         return return_arr
+
