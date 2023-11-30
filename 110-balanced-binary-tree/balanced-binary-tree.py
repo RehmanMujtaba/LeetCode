@@ -9,7 +9,6 @@ class Solution:
         if root != None:
             depth_left = self.maxDepth(root.left)
             depth_right = self.maxDepth(root.right)
-            print(f"height of left subtree is {depth_left} and right is {depth_right}")
             if abs(depth_left - depth_right) <= 1:
                 return True and self.isBalanced(root.right) and self.isBalanced(root.left)
             else:
