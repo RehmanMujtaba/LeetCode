@@ -4,7 +4,7 @@ class Solution:
         table = {")" : "(", "}" : "{", "]" : "["}
 
         for x in s:
-            if x == "(" or x == "[" or x == "{":
+            if x in "({[":
                 stack.append(x)
             elif len(stack) > 0 and stack[-1] == table[x]:
                 stack.pop()
