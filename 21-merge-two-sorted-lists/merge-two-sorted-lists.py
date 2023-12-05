@@ -29,20 +29,18 @@ class Solution:
         print(head.val)
 
         while(list1 or list2) :
-            new_node = None
             if (list2 and not list1):
-                new_node = list2
+                curr.next = list2
                 list2 = list2.next
                 print(curr.val)
             elif (list1 and not list2) or list1.val < list2.val:
-                new_node = list1
+                curr.next = list1
                 list1 = list1.next
                 print(curr.val)
             else:
-                new_node = list2
+                curr.next = list2
                 list2 = list2.next
                 print(curr.val)
-            curr.next = new_node
-            curr = new_node
+            curr = curr.next
         return head
             
