@@ -6,9 +6,10 @@ class Solution:
 
         while(l <= r):
             m = math.floor((l + r) / 2)
-            if nums[m] == target:
+            num = nums[m]
+            if num == target:
                 return m
-            elif nums[m] < target:
+            elif num < target:
                 l = m + 1
             else:
                 r = m - 1
