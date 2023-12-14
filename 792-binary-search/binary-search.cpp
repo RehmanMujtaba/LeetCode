@@ -4,16 +4,15 @@ public:
 
       int   l = 0;
       int  r = nums.size() - 1;
-      int   k = target;
 
         while(l <= r){
-            if (k < nums[l] || k > nums[r])  return -1;
-            if (k == nums[r])  return r;
-            int m = l + floor(((k - nums[l])/(nums[r] - nums[l])) * (r - l));
+            if (target < nums[l] || target > nums[r])  return -1;
+            if (target == nums[r])  return r;
+            int m = l + floor(((target - nums[l])/(nums[r] - nums[l])) * (r - l));
             int num = nums[m];
-            if (num == k){
+            if (num == target){
                 return m;
-             } else if (num < k) {
+             } else if (num < target) {
                 l = m + 1;
               } else {
                 r = m - 1;
