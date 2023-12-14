@@ -9,12 +9,12 @@ public:
             if (target < nums[l] || target > nums[r])  return -1;
             if (target == nums[r])  return r;
             int m = l + floor(((target - nums[l])/(nums[r] - nums[l])) * (r - l));
-            if (nums[m] == target){
-                return m;
-             } else if (nums[m] < target) {
+             if (nums[m] < target) {
                 l = m + 1;
-              } else {
+              } else if (nums[m] > target){
                 r = m - 1;
+              } else {
+                  return m;
               }
         }
         return -1;
