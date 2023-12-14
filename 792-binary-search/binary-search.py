@@ -3,16 +3,20 @@ class Solution:
         
         l = 0
         r = len(nums) - 1
+        k = target
 
         while(l <= r):
-            m = math.floor((l + r) / 2)
+            if (k < nums[l] or k > nums[r]):
+                return -1
+            if (k == nums[r]):
+                return r
+            m = l + math.floor(((k - nums[l])/(nums[r] - nums[l])) * (r - l))
             num = nums[m]
-            if num == target:
+            if (num == k):
                 return m
-            elif num < target:
+            elif (num < k):
                 l = m + 1
             else:
                 r = m - 1
-        return -1
 
 
