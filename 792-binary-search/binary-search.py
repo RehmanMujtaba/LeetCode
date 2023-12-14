@@ -1,22 +1,21 @@
-
-        
-
-
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         
         l = 0
         r = len(nums) - 1
+        k = target
 
         while(l <= r):
-            if (target < nums[l] or target > nums[r]):
+            if (k < nums[l] or k > nums[r]):
                 return -1
-            m = math.floor((l + r) / 2)
-            if nums[m] == target:
+            if (k == nums[r]):
+                return r
+            m = l + math.floor(((k - nums[l])/(nums[r] - nums[l])) * (r - l))
+            num = nums[m]
+            if (num == k):
                 return m
-            elif nums[m] < target:
+            elif (num < k):
                 l = m + 1
             else:
                 r = m - 1
-        return -1
 
