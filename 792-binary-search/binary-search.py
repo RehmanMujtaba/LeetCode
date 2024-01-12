@@ -4,9 +4,11 @@ class Solution:
         left = 0
         right = len(nums) - 1
 
-        while(left <= right):
-            mid = floor((right + left) / 2)
-            print(mid)
+        while(left  <= right):
+            if (target < nums[left] or target > nums[right]): return -1
+            if (target == nums[right]): return right
+
+            mid = left + floor((target - nums[left])/(nums[right] - nums[left])) * (right - left)
             if (target == nums[mid]):
                 return mid
             elif (target < nums[mid]):
