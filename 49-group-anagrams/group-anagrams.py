@@ -5,9 +5,7 @@ class Solution:
 
         for s in strs:
             sortedString = "".join(sorted(s))
-            #print(newMap)
             if sortedString in hm:
-                #print(f"{newMap} is in {hm}")
                 hm[sortedString].extend([s])
             else:
                 hm[sortedString] = [s]
