@@ -11,10 +11,10 @@ class Solution:
                 else:
                     newMap[letter] = 1
             #print(newMap)
-            if frozenset(newMap.items()) in hm:
+            if json.dumps(newMap, sort_keys=True) in hm:
                 #print(f"{newMap} is in {hm}")
-                hm[frozenset(newMap.items())].extend([s])
+                hm[json.dumps(newMap, sort_keys=True)].extend([s])
             else:
-                hm[frozenset(newMap.items())] = [s]
+                hm[json.dumps(newMap, sort_keys=True)] = [s]
         
         return hm.values()
