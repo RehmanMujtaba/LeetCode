@@ -1,13 +1,20 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        hashmap = defaultdict(list)
+        
+        hm = {}
 
-        for item in strs:
-            counts_array = [0] * 26
-
-            for letter in item:
-                counts_array[ord("z") - ord(letter)] += 1
-            
-            hashmap[tuple(counts_array)].append(item)
-
-        return hashmap.values()
+        for s in strs:
+            newMap = {}
+            for letter in s:
+                if letter in newMap:
+                    newMap[letter] = newMap[letter] + 1
+                else:
+                    newMap[letter] = 1
+            #print(newMap)
+            if hash(frozenset(newMap.items())) in hm:
+                #print(f"{newMap} is in {hm}")
+                hm[hash(frozenset(newMap.items()))].extend([s])
+            else:
+                hm[hash(frozenset(newMap.items()))] = [s]
+        
+        return hm.values()
