@@ -10,11 +10,10 @@ class Solution:
                     newMap[letter] = newMap[letter] + 1
                 else:
                     newMap[letter] = 1
-            #print(newMap)
-            if hash(frozenset(newMap.items())) in hm:
-                #print(f"{newMap} is in {hm}")
-                hm[hash(frozenset(newMap.items()))].append(s)
+            theHash = hash(frozenset(newMap.items()))
+            if theHash in hm:
+                hm[theHash].append(s)
             else:
-                hm[hash(frozenset(newMap.items()))] = [s]
+                hm[theHash] = [s]
         
         return hm.values()
