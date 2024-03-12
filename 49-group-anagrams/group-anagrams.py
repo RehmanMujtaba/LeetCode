@@ -11,7 +11,6 @@ class Solution:
                 else:
                     newMap[letter] = 1
             #print(newMap)
-            theHash = hash(frozenset(newMap.items()))
-            hm[theHash] = hm.get(theHash, []) + [s]
+            hm[hash(frozenset(newMap.items()))] = hm.get(hash(frozenset(newMap.items())), []) + [s]
         
         return hm.values()
