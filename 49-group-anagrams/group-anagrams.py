@@ -6,7 +6,7 @@ class Solution:
         for s in strs:
             sortedString = "".join(sorted(s))
             if sortedString in hm:
-                hm[sortedString].extend([s])
+                hm[sortedString].append(s)
             else:
                 hm[sortedString] = [s]
         
