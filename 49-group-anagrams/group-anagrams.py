@@ -6,11 +6,8 @@ class Solution:
         for s in strs:
             newMap = {}
             for letter in s:
-                if letter in newMap:
-                    newMap[letter] += 1
-                else:
-                    newMap[letter] = 1
-            #print(newMap)
-            hm[hash(frozenset(newMap.items()))] = hm.get(hash(frozenset(newMap.items())), []) + [s]
+                newMap[letter] = newMap.get(letter, 0) + 1
+            theHash = hash(frozenset(newMap.items()))
+            hm[theHash] = hm.get(theHash, []) + [s]
         
         return hm.values()
