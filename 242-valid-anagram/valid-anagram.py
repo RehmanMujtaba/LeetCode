@@ -2,9 +2,6 @@ class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         hashmap = {}
 
-        if len(s) != len(t):
-            return False
-
         for letter in s:
             if letter in hashmap:
                 hashmap[letter] = hashmap[letter] + 1
