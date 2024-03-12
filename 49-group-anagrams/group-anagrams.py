@@ -13,7 +13,7 @@ class Solution:
             #print(newMap)
             theHash = hash(frozenset(newMap.items()))
             if theHash in hm:
-                hm[theHash].append(s)
+                hm[theHash] += [s]
             else:
                 hm[theHash] = [s]
         
