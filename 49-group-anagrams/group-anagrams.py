@@ -4,10 +4,17 @@ class Solution:
         hm = {}
 
         for s in strs:
-            sortedString = "".join(sorted(s))
-            if sortedString in hm:
-                hm[sortedString].append(s)
+            newMap = {}
+            for letter in s:
+                if letter in newMap:
+                    newMap[letter] = newMap[letter] + 1
+                else:
+                    newMap[letter] = 1
+            #print(newMap)
+            if hash(frozenset(newMap.items())) in hm:
+                #print(f"{newMap} is in {hm}")
+                hm[hash(frozenset(newMap.items()))].append(s)
             else:
-                hm[sortedString] = [s]
+                hm[hash(frozenset(newMap.items()))] = [s]
         
         return hm.values()
