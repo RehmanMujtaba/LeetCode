@@ -2,7 +2,6 @@ class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         
         def isValidSection(sec: List[str]) -> bool:
-            print(sec)
             hp = set()
             for num in sec:
                 if (num in hp) and (num != "."):
