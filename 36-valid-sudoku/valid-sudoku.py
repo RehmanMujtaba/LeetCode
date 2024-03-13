@@ -1,10 +1,7 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        COUNT = 0
-        def isValidSection(sec: List[str], count=COUNT) -> bool:
-            hp = set()
-            count = COUNT + 1
-            print(count)
+        def isValidSection(sec: List[str]) -> bool:
+            hp = set()            
             for num in sec:
                 if (num in hp) and (num != "."):
                     return False
