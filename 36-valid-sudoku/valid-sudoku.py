@@ -3,7 +3,7 @@ class Solution:
         COUNT = 0
         def isValidSection(sec: List[str], count=COUNT) -> bool:
             hp = set()
-            count += 1
+            count = COUNT + 1
             print(count)
             for num in sec:
                 if (num in hp) and (num != "."):
