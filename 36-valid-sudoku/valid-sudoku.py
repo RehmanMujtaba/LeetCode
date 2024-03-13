@@ -12,11 +12,19 @@ class Solution:
         for row in board:
             if not isValidSection(row):
                 return False
+        
 
         for i in range(0,9):
             lst = []
             for j in range(0,9):
                 lst.append(board[j][i])
+            if not isValidSection(lst):
+                return False
+
+        for i in range(0,9):
+            lst = []
+            for j in range(0,9):
+                lst.append(board[i][j])
             if not isValidSection(lst):
                 return False
         
