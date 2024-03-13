@@ -8,11 +8,6 @@ class Solution:
                 else:
                     hp.add(num)
             return True
-        
-        for row in board:
-            if not isValidSection(row):
-                return False
-        
 
         for i in range(0,9):
             lst = []
