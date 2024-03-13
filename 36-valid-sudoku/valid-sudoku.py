@@ -3,7 +3,6 @@ class Solution:
         
         def isValidSection(sec: List[str]) -> bool:
             hp = set()
-            print(sec)
             for num in sec:
                 if (num in hp) and (num != "."):
                     return False
@@ -21,30 +20,15 @@ class Solution:
                 lst.append(board[j][i])
             if not isValidSection(lst):
                 return False
-        lst = []
-        j = 0
-        for i in range(0,3):
-            lst.append(board[i][j + 0])
-            lst.append(board[i][j + 1])
-            lst.append(board[i][j + 2])
-        if not isValidSection(lst):
-            return False
-        lst = []
-        j = 3
-        for i in range(0,3):
-            lst.append(board[i][j + 0])
-            lst.append(board[i][j + 1])
-            lst.append(board[i][j + 2])
-        if not isValidSection(lst):
-            return False
-        lst = []
-        j = 6
-        for i in range(0,3):
-            lst.append(board[i][j + 0])
-            lst.append(board[i][j + 1])
-            lst.append(board[i][j + 2])
-        if not isValidSection(lst):
-            return False
+        for j in range(0,9,3):
+            lst = []
+            for i in range(0,3):
+                lst.append(board[i][j + 0])
+                lst.append(board[i][j + 1])
+                lst.append(board[i][j + 2])
+            if not isValidSection(lst):
+                return False
+        
         lst = []
         j = 0
         for i in range(3,6):
