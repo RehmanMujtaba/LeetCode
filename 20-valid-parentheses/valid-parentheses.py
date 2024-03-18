@@ -1,18 +1,37 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        
         stack = []
-        table = {")" : "(", "}" : "{", "]" : "["}
+        par_map = {")" : "(", "}" : "{", "]": "[" }
 
-        for x in s:
-            if x in "({[":
-                stack.append(x)
-            elif len(stack) > 0 and stack[-1] == table[x]:
-                stack.pop()
-                continue
-            else:
-                return False
-                
-        if len(stack) == 0:
-            return True
-        else:
+        def isTopValid(par : str, top : str) -> bool:
+            if top == "(" and par == ")":
+                return True
+            if top == "{" and par == "}":
+                return True                
+            if top == "[" and par == "]":
+                return True         
             return False
+            
+
+        for letter in s:
+            if letter in ["(", "{", "["]:
+                stack.append(letter)
+                continue
+            if letter in [")", "}", "]"]:
+                if len(stack) < 1:
+                    return False
+                if isTopValid(letter, stack[-1]):
+                    stack.pop()
+                else:
+                    return False
+        
+        return len(stack) == 0
+            
+            
+
+
+
+                
+
+
