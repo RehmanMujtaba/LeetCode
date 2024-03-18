@@ -15,9 +15,10 @@ class Solution:
             
 
         for letter in s:
-            if letter in ["(", "{", "["]:
+            if letter == "(" or letter == "{" or letter == "[":
                 stack.append(letter)
-            if letter in [")", "}", "]"]:
+                continue
+            if letter == ")" or letter == "}" or letter == "]":
                 if len(stack) < 1:
                     return False
                 if isTopValid(letter, stack[-1]):
