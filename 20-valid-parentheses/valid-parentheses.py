@@ -2,7 +2,6 @@ class Solution:
     def isValid(self, s: str) -> bool:
         
         stack = []
-        par_map = {")" : "(", "}" : "{", "]": "[" }
 
         def isTopValid(par : str, top : str) -> bool:
             if top == "(" and par == ")":
@@ -21,11 +20,17 @@ class Solution:
             if letter == ")" or letter == "}" or letter == "]":
                 if len(stack) < 1:
                     return False
-                if isTopValid(letter, stack[-1]):
+                if stack[-1] == "(" and letter == ")":
                     stack.pop()
-                else:
-                    return False
-        
+                    continue
+                if stack[-1] == "{" and letter == "}":
+                    stack.pop()
+                    continue           
+                if stack[-1] == "[" and letter == "]":
+                    stack.pop()
+                    continue        
+                return False
+
         return len(stack) == 0
             
             
