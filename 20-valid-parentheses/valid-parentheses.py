@@ -17,7 +17,6 @@ class Solution:
         for letter in s:
             if letter in ["(", "{", "["]:
                 stack.append(letter)
-                continue
             if letter in [")", "}", "]"]:
                 if len(stack) < 1:
                     return False
