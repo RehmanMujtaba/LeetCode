@@ -1,10 +1,16 @@
 class Solution:
-    def findDuplicate(self, nums: List[int]) -> int:
-        
-        hashset = set()
+    def findDuplicate(self, nums: List[int]) -> int:    
+        slow = nums[0]
+        fast = nums[nums[0]]
 
-        for num in nums:
-            if num in hashset:
-                return num
-            else:
-                hashset.add(num)
+        while slow != fast:
+            slow = nums[slow]
+            fast = nums[nums[fast]]
+
+
+        slow = 0
+        while slow != fast:
+            slow = nums[slow]
+            fast = nums[fast]
+
+        return slow
