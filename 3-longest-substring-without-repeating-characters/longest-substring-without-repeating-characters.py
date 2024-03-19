@@ -8,9 +8,7 @@ class Solution:
         r = 0
         l = 0
         
-        while True:
-            if l == len(s):
-                break
+        while l < len(s):
             if s[l] in hashset:
                 hashset.remove(s[r])
                 r += 1
