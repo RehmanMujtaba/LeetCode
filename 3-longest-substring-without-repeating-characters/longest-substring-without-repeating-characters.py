@@ -9,7 +9,7 @@ class Solution:
         l = 0
         
         while True:
-            if r >= len(s) or l >= len(s):
+            if r == len(s) or l == len(s):
                 break
             if s[l] in hashset:
                 hashset.remove(s[r])
