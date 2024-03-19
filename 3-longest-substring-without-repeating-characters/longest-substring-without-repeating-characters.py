@@ -12,7 +12,7 @@ class Solution:
             if r >= len(s) or l >= len(s):
                 break
             if s[l] in hashset:
-                hashset.discard(s[r])
+                hashset.remove(s[r])
                 r += 1
                 currLen -= 1
             else:
