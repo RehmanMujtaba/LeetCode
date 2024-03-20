@@ -3,9 +3,12 @@ class Solution:
         hashmap = {}
 
         for num in nums:
-            if hashmap.get(num) == 2:
-                return False
-            hashmap[num] = hashmap.get(num, 0) + 1
-            
+            if num in hashmap:
+                if hashmap[num] == 2:
+                    return False
+                else:
+                    hashmap[num] = 2
+            else:
+                hashmap[num] = 1
         
         return True
