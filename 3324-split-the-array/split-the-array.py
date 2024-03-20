@@ -3,8 +3,9 @@ class Solution:
         hashmap = {}
 
         for num in nums:
-            hashmap[num] = hashmap.get(num, 0) + 1
-            if hashmap[num] > 2:
+            if hashmap.get(num) == 2:
                 return False
+            hashmap[num] = hashmap.get(num, 0) + 1
+            
         
         return True
