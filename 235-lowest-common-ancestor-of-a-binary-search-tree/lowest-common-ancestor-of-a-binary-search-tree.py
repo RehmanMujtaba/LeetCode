@@ -13,7 +13,7 @@ class Solution:
 
         curr = root
         P_Queue.append(curr)
-        while curr != None:
+        while True:
             if p.val == curr.val:
                 P_Queue.append(curr)
                 break
@@ -25,7 +25,7 @@ class Solution:
          
         curr = root
         Q_Queue.append(curr)
-        while curr != None:
+        while True:
             if q.val == curr.val:
                 print(curr.val)
                 Q_Queue.append(curr)
