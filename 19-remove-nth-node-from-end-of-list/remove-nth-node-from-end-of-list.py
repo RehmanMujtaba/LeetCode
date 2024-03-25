@@ -13,14 +13,14 @@ class Solution:
             arr.append(curr)
             curr = curr.next
         
-        length = len(arr)
-        ToRemove = arr[length - n]
+        num = len(arr) - n
+        ToRemove = arr[num]
 
         if ToRemove == head:
             head = head.next
             return head
         
-        prev = arr[length - n - 1]
+        prev = arr[num - 1]
         
         prev.next = ToRemove.next
         return head
