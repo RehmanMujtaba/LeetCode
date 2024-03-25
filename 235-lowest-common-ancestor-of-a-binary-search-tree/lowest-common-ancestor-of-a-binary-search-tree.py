@@ -11,12 +11,10 @@ class Solution:
         P_Queue = deque()
         Q_Queue = deque()
 
-        print("P")
         curr = root
         P_Queue.append(curr)
         while curr != None:
             if p.val == curr.val:
-                print(curr.val)
                 P_Queue.append(curr)
                 break
             elif p.val < curr.val:
@@ -24,9 +22,7 @@ class Solution:
             else:
                 curr = curr.right
             P_Queue.append(curr)
-            print(curr.val)
          
-        print("Q")
         curr = root
         Q_Queue.append(curr)
         while curr != None:
@@ -39,7 +35,6 @@ class Solution:
             else:
                 curr = curr.right
             Q_Queue.append(curr)
-            print(curr.val)
 
         ans = None
         while P_Queue[0] == Q_Queue[0]:
