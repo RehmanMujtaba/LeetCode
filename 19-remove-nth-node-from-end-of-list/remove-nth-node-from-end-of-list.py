@@ -6,28 +6,21 @@
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         
-        stack = []
+        arr = []
         curr = head
 
         while curr != None:
-            stack.append(curr)
+            arr.append(curr)
             curr = curr.next
         
-        popped = 1
-        remove = stack.pop()
-        
-        while popped < n:
-            remove = stack.pop()
-            popped += 1    
-        
-        curr = head
+        ToRemove = arr[len(arr) - n]
 
-        if curr == remove:
-            head = curr.next
+        if ToRemove == head:
+            head = head.next
             return head
-
-        while curr.next != None and curr.next != remove:
-            curr = curr.next
-    
-        curr.next = remove.next
+        
+        prev = arr[len(arr) - n - 1]
+        
+        prev.next = ToRemove.next
         return head
+        
