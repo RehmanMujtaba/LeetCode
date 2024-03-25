@@ -9,6 +9,7 @@ from collections import deque
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         P_Queue = deque()
+        Q_Queue = deque()
 
         curr = root
         P_Queue.append(curr)
@@ -23,19 +24,21 @@ class Solution:
             P_Queue.append(curr)
          
         curr = root
-        curr_path = P_Queue.popleft()
-        ans = root
-
-        while curr == curr_path:
-            ans = curr
-            if q.val < curr.val:
+        Q_Queue.append(curr)
+        while True:
+            if q.val == curr.val:
+                print(curr.val)
+                Q_Queue.append(curr)
+                break
+            elif q.val < curr.val:
                 curr = curr.left
-            elif q.val > curr.val:
+            else:
                 curr = curr.right
-            curr_path = P_Queue.popleft()
+            Q_Queue.append(curr)
+
+        ans = None
+        while P_Queue[0] == Q_Queue[0]:
+            ans = P_Queue.popleft()
+            Q_Queue.popleft()
 
         return ans
-            
-        
-        
-        
