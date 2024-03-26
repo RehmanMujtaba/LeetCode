@@ -1,18 +1,12 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        sol = []
-        ans = []
-
-        def backtrack():    
-            if len(sol) == len(nums):
-                ans.append(sol[:]) 
-                return
-   
-            for num in nums:                
-                if num not in sol:
-                    sol.append(num)
-                    backtrack()
-                    sol.pop()
-
-        backtrack()
-        return ans
+        if len(nums) == 0:
+            return [[]] 
+        else:
+            result = []
+            for i in range(len(nums)):
+                current_num = nums[i]
+                remaining_nums = nums[:i] + nums[i+1:]  
+                for perm in self.permute(remaining_nums):   
+                    result.append([current_num] + perm) 
+            return result
