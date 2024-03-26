@@ -1,14 +1,26 @@
-from typing import List
+from math import factorial
 class Solution:  
     def permute(self, nums: List[int]) -> List[List[int]]:
-        def backtrack(remaining_nums, permutation):
-            if not remaining_nums:
-                ans.append(permutation)
-                return
-
-            for i in range(len(remaining_nums)):
-                backtrack(remaining_nums[:i] + remaining_nums[i+1:], permutation + [remaining_nums[i]])
-
-        ans = []
-        backtrack(nums, [])
-        return ans
+        def nth_permutation(n, nums):
+            permutation = []
+            factoradic = []
+            
+            # Calculate factoradic representation
+            for i in range(1, len(nums) + 1):
+                factoradic.append(n % i)
+                n //= i
+            factoradic.reverse()
+            
+            # Generate permutation based on factoradic representation
+            for i, f in enumerate(factoradic):
+                permutation.append(nums.pop(f))
+            return permutation
+        
+        num_permutations = factorial(len(nums))
+        permutations = []
+        
+        # Generate all permutations
+        for i in range(num_permutations):
+            permutations.append(nth_permutation(i, nums[:]))
+        
+        return permutations
