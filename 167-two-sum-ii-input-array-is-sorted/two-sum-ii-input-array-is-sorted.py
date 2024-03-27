@@ -6,10 +6,9 @@ class Solution:
         while True:
             sum = numbers[left] + numbers[right]
             if sum == target:
-                break
+                return [left + 1, right + 1]
             elif sum < target:
                 left += 1
             else:
                 right -= 1
 
-        return [left + 1, right + 1]
