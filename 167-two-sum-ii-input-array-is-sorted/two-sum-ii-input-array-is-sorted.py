@@ -4,9 +4,10 @@ class Solution:
         left, right = 0, len(numbers) - 1
 
         while True:
-            if numbers[left] + numbers[right] == target:
+            sum = numbers[left] + numbers[right]
+            if sum == target:
                 break
-            elif numbers[left] + numbers[right] < target:
+            elif sum < target:
                 left += 1
             else:
                 right -= 1
