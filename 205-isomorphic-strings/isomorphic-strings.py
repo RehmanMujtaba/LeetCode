@@ -1,25 +1,23 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        hashmap = {}
+        hashmap_1 = {}
+        hashmap_2 = {}
 
         for i, char in enumerate(s):
-            maped_char = hashmap.get(char, False)
+            maped_char_1 = hashmap_1.get(char, False)
             t_char = t[i]
-            if maped_char:
-                if t_char != maped_char:
+            if maped_char_1:
+                if t_char != maped_char_1:
                     return False               
             else:
-                hashmap[char] = t_char
-        
-        hashmap = {}
-
-        for i, char in enumerate(t):
-            maped_char = hashmap.get(char, False)
+                hashmap_1[char] = t_char
+            
+            maped_char_2 = hashmap_2.get(t[i], False)
             s_char = s[i]
-            if maped_char:
-                if s_char != maped_char:
+            if maped_char_2:
+                if s_char != maped_char_2:
                     return False               
             else:
-                hashmap[char] = s_char
-
+                hashmap_2[t[i]] = s_char
+        
         return True
