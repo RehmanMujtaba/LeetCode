@@ -10,10 +10,10 @@ class Node:
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         
-        arr, new_arr, curr_old, head_new = [], [], head, Node(0)
+        curr_old, head_new = head, Node(0)
         curr_new = head_new
+
         while curr_old is not None:
-       #     arr.append(curr_old)
             curr_new.next = Node(curr_old.val)
             curr_new = curr_new.next
             curr_old = curr_old.next
