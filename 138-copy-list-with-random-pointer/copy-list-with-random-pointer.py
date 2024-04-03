@@ -14,6 +14,7 @@ class Solution:
         curr_new = head_new
 
         hashmap = {}
+        hashmap[None] = None
         index = 0
 
         while curr_old is not None:
@@ -26,11 +27,7 @@ class Solution:
         curr_new = head_new.next
 
         while curr_old is not None:
-            rand = curr_old.random
-            if rand is not None:
-                curr_new.random = hashmap[rand]
-            else:
-                curr_new.random = None
+            curr_new.random = hashmap[curr_old.random]
             curr_old = curr_old.next
             curr_new = curr_new.next
  
