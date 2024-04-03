@@ -9,7 +9,7 @@ class Solution:
         prev = None
         curr = head
 
-        while curr is not None:
+        while curr:
             temp = curr.next
             curr.next = prev
             prev = curr
