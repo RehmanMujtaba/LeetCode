@@ -13,17 +13,14 @@ class Solution:
         curr_old, head_new = head, Node(0)
         curr_new = head_new
 
-        node_arr = []
         hashmap = {}
         index = 0
 
         while curr_old is not None:
-            hashmap[curr_old] = index
-            index += 1
             curr_new.next = Node(curr_old.val)
             curr_new = curr_new.next
+            hashmap[curr_old] = curr_new
             curr_old = curr_old.next
-            node_arr.append(curr_new)
      
         curr_old = head
         curr_new = head_new.next
@@ -31,8 +28,7 @@ class Solution:
         while curr_old is not None:
             rand = curr_old.random
             if rand is not None:
-                index = hashmap[rand]
-                curr_new.random = node_arr[index]
+                curr_new.random = hashmap[rand]
             else:
                 curr_new.random = None
             curr_old = curr_old.next
