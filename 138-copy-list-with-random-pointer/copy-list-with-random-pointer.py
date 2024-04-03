@@ -9,6 +9,9 @@ class Node:
 
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+
+        if not head:
+            return None
         
         curr_old, head_new = head, Node(0)
         curr_new = head_new
