@@ -24,15 +24,12 @@ class Solution:
         while curr_old is not None:
             rand = curr_old.random
             if rand is not None:
-                i = 0
                 temp = head
+                temp_new = head_new.next
                 while temp is not rand:
                     temp = temp.next
-                    i += 1
-                temp = head_new.next
-                for index in range(0, i):
-                    temp = temp.next
-                curr_new.random = temp
+                    temp_new = temp_new.next
+                curr_new.random = temp_new
             else:
                 curr_new.random = None
             curr_old = curr_old.next
