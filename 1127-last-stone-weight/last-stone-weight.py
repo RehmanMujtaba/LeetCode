@@ -10,7 +10,7 @@ class Solution:
         while(len(stones) > 1):
             stone_1 = heappop(stones)
             stone_2 = heappop(stones)
-            new_stone = abs(abs(stone_1) - abs(stone_2))
+            new_stone = abs(stone_1 - stone_2)
             if new_stone != 0:
                 heappush(stones, -1 * new_stone)
         
