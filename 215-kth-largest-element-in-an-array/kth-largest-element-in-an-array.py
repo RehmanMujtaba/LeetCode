@@ -16,5 +16,6 @@ class Solution:
                     currMax == num   
                     if num > heap[-1]:
                         print("smth")
-                                
+                        return
+
         return heap[0]
