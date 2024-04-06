@@ -1,16 +1,14 @@
 import heapq
+from collections import defaultdict
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 
-        hashmap = {}
+        hashmap = defaultdict(int)
         heap = []
 
         for num in nums:
-            if num in hashmap:
-                hashmap[num] += 1
-            else:
-                hashmap[num] = 1
+            hashmap[num] += 1
         
         for key, value in hashmap.items():
             if (len(heap) < k):
