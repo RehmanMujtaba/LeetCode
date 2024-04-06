@@ -4,7 +4,7 @@ class Solution:
     def frequencySort(self, s: str) -> str:
 
         hashmap = defaultdict(int)  
-        sol = ""      
+        sol = []     
 
         for char in s:
             hashmap[char] += 1
@@ -12,7 +12,7 @@ class Solution:
         sorted_hashmap = {key: value for key, value in sorted(hashmap.items(), key=lambda item: item[1], reverse=True)}
 
         for key, value in sorted_hashmap.items():
-            sol += (value * key)
+            sol.append(value * key)
         
-        return sol
+        return ''.join(sol)
         
