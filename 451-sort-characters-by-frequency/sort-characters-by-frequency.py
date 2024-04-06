@@ -12,8 +12,7 @@ class Solution:
         sorted_hashmap = {key: value for key, value in sorted(hashmap.items(), key=lambda item: item[1], reverse=True)}
 
         for key, value in sorted_hashmap.items():
-            for i in range(0, value):
-                sol += key
+            sol += (value * key)
         
         return sol
         
