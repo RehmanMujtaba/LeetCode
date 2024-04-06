@@ -19,6 +19,4 @@ class Solution:
                 heappop(heap)
                 heappush(heap, [value, key])
 
-        sol = [items[1] for items in heap]
-
-        return sol
+        return  [items[1] for items in heap]
