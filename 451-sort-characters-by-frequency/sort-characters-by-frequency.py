@@ -1,18 +1,22 @@
 from collections import defaultdict
+import heapq
 
 class Solution:
     def frequencySort(self, s: str) -> str:
 
         hashmap = defaultdict(int)  
-        sol = []     
+        sol = []   
+        heap = []  
 
         for char in s:
             hashmap[char] += 1
         
-        sorted_hashmap = {key: value for key, value in sorted(hashmap.items(), key=lambda item: item[1], reverse=True)}
+        for key, value in hashmap.items():
+            heappush(heap, [-value, key])
 
-        for key, value in sorted_hashmap.items():
-            sol.append(value * key)
+        while len(heap) != 0:
+            count, letter = heappop(heap)
+            sol.append(letter * (-count))
         
         return ''.join(sol)
         
