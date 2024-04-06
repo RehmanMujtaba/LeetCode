@@ -19,9 +19,6 @@ class Solution:
                 heappop(heap)
                 heappush(heap, [value, key])
 
-        sol = []
+        sol = [items[1] for items in heap]
 
-        for pair in heap:
-            sol.append(pair[1])
-        
         return sol
