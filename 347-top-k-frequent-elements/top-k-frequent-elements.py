@@ -19,4 +19,4 @@ class Solution:
                 heappop(heap)
                 heappush(heap, [value, key])
 
-        return  [value for _, value in heap]
+        return  [key for _, key in heap]
