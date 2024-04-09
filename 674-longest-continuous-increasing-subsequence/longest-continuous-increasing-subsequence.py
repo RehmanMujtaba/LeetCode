@@ -6,14 +6,14 @@ class Solution:
         r, l = 1, 0
 
         while r < len(nums):
-            if nums[r] - nums[r - 1] > 0:
+            if nums[l] < nums[r]:
                 curr += 1
                 max_len = max(curr, max_len)
                 l += 1
                 r += 1
             else:
                 curr = 1
-                l += 1
+                l = r
                 r = l + 1
 
         return max_len
