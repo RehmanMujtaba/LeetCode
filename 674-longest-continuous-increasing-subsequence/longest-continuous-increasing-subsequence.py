@@ -6,7 +6,7 @@ class Solution:
         r, l = 1, 0
 
         while r < len(nums):
-            if nums[l] < nums[r]:
+            if nums[r] - nums[r - 1] > 0:
                 curr += 1
                 max_len = max(curr, max_len)
                 l += 1
