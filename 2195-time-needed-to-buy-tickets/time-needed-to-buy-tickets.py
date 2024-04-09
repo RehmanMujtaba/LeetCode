@@ -1,12 +1,13 @@
 class Solution:
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
         seconds = 0
+        target = tickets[k]
         for index, count in enumerate(tickets):
-            if count < tickets[k]:
+            if count < target:
                 seconds += count
             elif index < k:
-                seconds += tickets[k]
+                seconds += target
             else:
-                seconds += tickets[k] - 1
+                seconds += target - 1
 
         return seconds + 1
