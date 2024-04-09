@@ -6,7 +6,6 @@ class Solution:
         r, l = 1, 0
 
         while r < len(nums):
-            print(f'{l} and {r}')
             if nums[l] < nums[r]:
                 curr += 1
                 max_len = max(curr, max_len)
