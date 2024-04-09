@@ -3,17 +3,18 @@ class Solution:
 
         maxLen = 0
         l, r = 0, 0
-        hashset = ""
+        hashset = set()
         length = len(s)
 
         while r < length:       
             if s[r] in hashset:
-                l += 1
-                r = l               
-                hashset = ""              
+                while l < r and s[r] in hashset:
+                    hashset.remove(s[l])
+                    l += 1
+                hashset.add(s[r])
             else:
-                hashset += s[r]
-                r += 1      
+                hashset.add(s[r])
+            r += 1            
             maxLen = max(maxLen, r - l)
 
 
