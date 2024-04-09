@@ -8,7 +8,6 @@ class Solution:
             temp = piles
             hours = 0
             currSpeed = (minSpeed + maxSpeed) // 2
-            print(f"Left: {minSpeed} Right: {maxSpeed} Mid: {currSpeed}")
             for i in range(0, len(temp)):
                 hours += math.ceil(temp[i] / currSpeed)
                 if hours > h:
