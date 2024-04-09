@@ -13,7 +13,7 @@ class Solution:
                 r += 1
             else:
                 curr = 1
-                l = r
+                l += 1
                 r = l + 1
 
         return max_len
