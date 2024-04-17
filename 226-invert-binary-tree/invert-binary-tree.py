@@ -6,8 +6,15 @@
 #         self.right = right
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        if root != None:
-            self.invertTree(root.left)
-            self.invertTree(root.right)
-            root.right, root.left = root.left , root.right
+        
+        stack = [root]
+
+        while len(stack) != 0:
+            node = stack.pop()
+            if node is None:
+                continue
+            node.left, node.right = node.right, node.left
+            stack.append(node.left)
+            stack.append(node.right)
+        
         return root
