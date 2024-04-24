@@ -1,17 +1,16 @@
 class Solution:
-
-
-    def tribonacci(self, n: int) -> int: 
-        def helper(n, map):
-            if n in map: return map[n]
-            result = helper(n - 1, map) + helper(n - 2, map) + helper(n - 3, map)
-            map[n] = result
-            return result
-
-        map = {}
-        map[0] = 0
-        map[1] = 1
-        map[2] = 1
-        return helper(n, map)
-
-  
+    def tribonacci(self, n: int) -> int:
+        if n == 0:
+            return 0
+        elif n == 1 or n == 2:
+            return 1
+        
+        a, b, c = 0, 1, 1
+        
+        for i in range(3, n + 1):
+            next_trib = a + b + c
+            a = b
+            b = c
+            c = next_trib
+        
+        return c
