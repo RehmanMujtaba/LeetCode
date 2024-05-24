@@ -7,13 +7,12 @@ class Solution:
             if len(stack) == 0:
                 stack.append([height, index])    
             else:        
-                start = index
+                i = index
                 while len(stack) > 0 and stack[-1][0] > height:
                         h, i = stack.pop()
                         area = h * (index - i)
                         curr_max = max(curr_max, area)
-                        start = i
-                stack.append([height, start])
+                stack.append([height, i])
         
         while len(stack) is not 0:
             height, index = stack.pop()
