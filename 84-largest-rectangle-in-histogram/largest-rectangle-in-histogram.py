@@ -4,13 +4,16 @@ class Solution:
         stack = []
         
         for index, height in enumerate(heights):
-            start = index
-            while start and stack[-1][0] > height:
-                    h, i = stack.pop()
-                    area = h * (index - i)
-                    curr_max = max(curr_max, area)
-                    start = i
-            stack.append([height, start])
+            if len(stack) == 0:
+                stack.append([height, index])    
+            else:        
+                start = index
+                while len(stack) > 0 and stack[-1][0] > height:
+                        h, i = stack.pop()
+                        area = h * (index - i)
+                        curr_max = max(curr_max, area)
+                        start = i
+                stack.append([height, start])
         
         while len(stack) is not 0:
             height, index = stack.pop()
