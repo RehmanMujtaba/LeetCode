@@ -9,7 +9,6 @@ class Solution:
                     h, i = stack.pop()
                     area = h * (index - i)
                     curr_max = max(curr_max, area)
-                    print(curr_max)
                     start = i
             stack.append([height, start])
         
@@ -17,7 +16,6 @@ class Solution:
             height, index = stack.pop()
             area = height * (len(heights) - index)
             curr_max = max(curr_max, area)
-            print(curr_max)
 
 
         return curr_max
