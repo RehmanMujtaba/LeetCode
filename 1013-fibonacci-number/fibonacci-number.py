@@ -6,10 +6,8 @@ class Solution:
 
         first = 0
         second = 1
-        value = 0
 
         for i in range(2, n + 1):
-            value = first + second
-            first, second = second, value
+            first, second = second, first + second
             
-        return value     
+        return second     
