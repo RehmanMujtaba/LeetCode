@@ -1,18 +1,14 @@
 class Solution:
 
-    def fib(self, n: int) -> int:
-        visited = [False] * (n + 1)
-        answer = [0] * (n + 1)
-        
-        def recurse(n: int) -> int:
-            if visited[n] == True:
-                return answer[n]
+    def fib(self, n: int) -> int:         
+        if n == 0 or n == 1:
+            return n
 
-            if n == 0 or n == 1:
-                return n
-             
-            answer[n] = recurse(n-1) + recurse(n-2)
-            visited[n] = True
-            return answer[n]
+        sol = [0] * (n + 1)
+        sol[0] = 0
+        sol[1] = 1
 
-        return recurse(n)
+        for i in range(2, n + 1):
+            sol[i] = sol[i - 1] + sol[i - 2]
+
+        return sol[n]        
