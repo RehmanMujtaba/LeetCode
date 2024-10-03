@@ -1,24 +1,21 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        hashmap = {}
+        hm = {}
 
         for letter in s:
-            if letter in hashmap:
-                hashmap[letter] = hashmap[letter] + 1
+            if letter in hm:
+                hm[letter] += 1
             else:
-                hashmap[letter] = 1
+                hm[letter] = 1
         
         for letter in t:
-            if letter in hashmap:
-                if hashmap[letter] == 0:
-                    return False
-                else:
-                    hashmap[letter] = hashmap[letter] - 1
+            if letter in hm and hm[letter] > 0:
+                hm[letter] = hm[letter] - 1
             else:
                 return False
 
-        for letter, count in hashmap.items():
-            if count != 0:
+        for _, value in (hm).items():
+            if value != 0:
                 return False
         
         return True
