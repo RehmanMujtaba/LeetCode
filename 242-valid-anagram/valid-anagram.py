@@ -14,8 +14,7 @@ class Solution:
             else:
                 return False
 
-        for _, value in (hm).items():
-            if value != 0:
-                return False
+        if len(s) != len(t):
+            return False
         
         return True
