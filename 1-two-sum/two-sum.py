@@ -4,10 +4,7 @@ class Solution:
         hm = {}
 
         for index, num in enumerate(nums):
-            hm[num] = index
-        
-        for index, num in enumerate(nums):
             if target - num in hm:
-                if hm[target - num] == index:
-                    continue
-                return[index, hm[target-num]]
+                return [hm[target - num], index]
+            else:
+                hm[num] = index
