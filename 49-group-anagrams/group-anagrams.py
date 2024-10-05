@@ -1,13 +1,19 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         
+        def makeAnagramKey(word) -> List[int]:
+            arr = [0] * 26
+            for letter in word:
+                arr[ord(letter) - 97] += 1
+            return arr
+        
         hm = {}
 
-        for s in strs:
-            newMap = {}
-            for letter in s:
-                newMap[letter] = newMap.get(letter, 0) + 1
-            theHash = hash(frozenset(newMap.items()))
-            hm[theHash] = hm.get(theHash, []) + [s]
-        
+        for word in strs:
+            key = tuple(makeAnagramKey(word))
+            if key in hm:
+                hm[key].append(word)
+            else:
+                hm[key] = [word]
+
         return hm.values()
